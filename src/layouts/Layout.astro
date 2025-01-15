@@ -19,6 +19,10 @@ import "../../node_modules/normalize.css";
       src="https://code.jquery.com/jquery-3.7.1.min.js"
       integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
       crossorigin="anonymous"></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/lenis@1.1.19/dist/lenis.css"
+    />
 
     <Globalstyles />
   </head>
@@ -31,3 +35,14 @@ import "../../node_modules/normalize.css";
 </html>
 
 <style></style>
+
+<script>
+  import Lenis from "lenis";
+
+  const lenis = new Lenis({ autoRaf: true });
+
+  //get scroll value
+  lenis.on("scroll", (e) => {
+    console.log(e);
+  });
+</script>

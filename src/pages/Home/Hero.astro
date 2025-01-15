@@ -4,9 +4,10 @@ import Container from "../../components/Container.astro";
 import ImageContainer from "../../components/ImageContainer.astro";
 import asSeen from "./img/asseen.svg";
 import Button from "../../components/Button.astro";
+import Landscape from "./img/landscape.jpg";
 ---
 
-<Container bg={HeroImg.src} className="hero-container">
+<Container bg={HeroImg.src} className="hero-container parallax">
   <div class="hero-contents">
     <ImageContainer item={asSeen} alt="as seen" className="asSeen" />
     <div class="btn-containers">
@@ -27,6 +28,9 @@ import Button from "../../components/Button.astro";
     <h6>Small batch roasted</h6>
   </div>
 </div>
+<Container bg={Landscape.src} className="landscape-container">
+  <div class="empty"><h3>Discover your new favorite coffee</h3></div>
+</Container>
 
 <style>
   .hero-contents {
@@ -98,4 +102,22 @@ import Button from "../../components/Button.astro";
       }
     }
   }
+
+  .empty {
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 </style>
+
+<script>
+  $(window).on("scroll", function () {
+    const scrollTop = $(window).scrollTop();
+    $(".parallax").each(function () {
+      const speed = 0.5; // Adjust speed as needed
+      const offset = scrollTop * speed;
+      $(this).css("background-position", `center calc(100% + ${offset}px)`);
+    });
+  });
+</script>
