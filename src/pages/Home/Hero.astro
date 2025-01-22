@@ -32,7 +32,7 @@ import Landscape from "./img/landscape.jpg";
   <div class="empty"><h3>Discover your new favorite coffee</h3></div>
 </Container>
 
-<style>
+<style is:inline>
   .hero-contents {
     height: 75vh;
     position: relative;
@@ -61,6 +61,8 @@ import Landscape from "./img/landscape.jpg";
   .cta-container {
     background-color: var(--yellow);
     border: 1px solid transparent;
+    padding-top: 3%;
+    padding-bottom: 3%;
 
     .container {
       h2 {
@@ -70,7 +72,35 @@ import Landscape from "./img/landscape.jpg";
     }
   }
 
+  .landscape-container {
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: "";
+      height: 100%;
+      width: 100%;
+      left: 0;
+      top: 0;
+      background-color: rgba(0, 0, 0, 0.3);
+      display: block;
+      z-index: 0;
+    }
+
+    .container {
+      z-index: 1;
+      display: block;
+      position: relative;
+
+      h3 {
+        color: #fff;
+      }
+    }
+  }
+
   .info-container {
+    padding-top: 2%;
+    padding-bottom: 2%;
     .container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
@@ -109,11 +139,15 @@ import Landscape from "./img/landscape.jpg";
     align-items: center;
     justify-content: center;
   }
+
+  .hero-container {
+    background-size: auto !important;
+  }
 </style>
 
 <script>
   $(window).on("scroll", function () {
-    const scrollTop = $(window).scrollTop();
+    const scrollTop = $(window).scrollTop() || 0; // Fallback to 0 if undefined
     $(".parallax").each(function () {
       const speed = 0.5; // Adjust speed as needed
       const offset = scrollTop * speed;

@@ -1,45 +1,29 @@
-.blog-container {
-  article {
-    .published {
-      display: flex;
-      gap: 2rem;
-    }
-    .icon-link {
-      display: flex;
-      align-items: center;
-      gap: 5px;
+.custom-accordion {
+  padding: 0;
+
+  .title-wrapper {
+    padding: 10px;
+    background-color: #00427a;
+    transition: all ease-in-out 0.25s;
+
+    &:hover {
+      background-color: #0083c5;
     }
 
-    h2 {
-      margin-bottom: 2rem;
+    h5 {
+      color: #fff !important;
     }
-    .content-group {
-      display: flex;
-      gap: 2rem;
-      img {
-        max-width: 270px !important;
-      }
+  }
+
+  &.et_pb_toggle_open {
+    .title-wrapper {
+      background-color: #0083c5;
     }
-    .meta-group {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border: 1px solid #eaeaea;
-      padding: 5px 10px;
-    }
-    .more-link {
-      background-color: #00427a;
-      padding: 10px;
-      color: #fff;
-      border-radius: 5px;
-      text-transform: capitalize;
-      font-weight: bold;
-    }
-    &:nth-child(even) {
-      .content-group {
-        display: flex;
-        flex-direction: row-reverse;
-      }
-    }
+  }
+
+  .et_pb_toggle_content {
+    padding: 10px;
+    background-color: #fff;
+    color: #00427a !important;
   }
 }

@@ -2,19 +2,20 @@
 import Menu from "../components/Menu.astro";
 import Globalstyles from "../components/Globalstyles.astro";
 import "../../node_modules/normalize.css";
+import Footer from "../components/Footer.astro";
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1"
+    />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>Astro Basics</title>
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=1.0"
-    />
     <script
       src="https://code.jquery.com/jquery-3.7.1.min.js"
       integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
@@ -31,6 +32,7 @@ import "../../node_modules/normalize.css";
     <main>
       <slot />
     </main>
+    <Footer />
   </body>
 </html>
 
@@ -42,7 +44,5 @@ import "../../node_modules/normalize.css";
   const lenis = new Lenis({ autoRaf: true });
 
   //get scroll value
-  lenis.on("scroll", (e) => {
-    console.log(e);
-  });
+  lenis.on("scroll", (e) => {});
 </script>
