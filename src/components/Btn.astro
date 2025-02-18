@@ -1,12 +1,12 @@
 ---
-const { href, className, name } = Astro.props;
+const { href, className, name, bgColor, textColor } = Astro.props;
 ---
 
 <button type="button" class={className} data-link={href}>
   {name}
 </button>
 
-<style>
+<style define:vars={{ bgColor, textColor }}>
   button {
     min-width: 175px;
     display: block;
@@ -14,20 +14,21 @@ const { href, className, name } = Astro.props;
     text-align: center;
     width: max-content;
     text-decoration: none;
-    color: var(--yellow);
+    color: var(--textColor) !important;
     text-transform: uppercase;
     padding: 10px;
     font-size: 14px;
-    border: 1px solid var(--dark-blue);
+    border: 1px solid var(--bgColor);
     z-index: 1;
     transition:
       color 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86),
       border 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86);
     cursor: pointer;
     line-height: normal;
+    background: transparent;
 
     &::before {
-      background-color: var(--dark-blue);
+      background-color: var(--bgColor);
       position: absolute;
       content: "";
       display: block;
@@ -44,7 +45,8 @@ const { href, className, name } = Astro.props;
     }
 
     &:hover {
-      color: var(--dark-blue);
+      color: var(--bgColor) !important;
+      background: transparent;
       &::before {
         transform-origin: right center;
         transform: scaleX(0);
